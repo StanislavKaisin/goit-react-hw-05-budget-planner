@@ -18,22 +18,54 @@ const StyledInput = styled.input`
   }
 `;
 
-const Input = ({ type, value, onChange, name }) => (
-  <StyledInput type={type} value={value} onChange={onChange} name={name} />
+const Input = ({
+  type,
+  value,
+  onChange,
+  name,
+  onFocus,
+  onBlur,
+  placeholder,
+  min,
+  step,
+}) => (
+  <StyledInput
+    type={type}
+    value={value}
+    onChange={onChange}
+    name={name}
+    onFocus={onFocus}
+    onBlur={onBlur}
+    placeholder={placeholder}
+    min={min}
+    step={step}
+  />
 );
 
 Input.propTypes = {
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
+
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  placeholder: PropTypes.string,
+  min: PropTypes.string,
+  step: PropTypes.string,
 };
 
 Input.defaultProps = {
   type: 'text',
   value: 0,
   name: '',
+
   onChange: () => null,
+  onFocus: () => null,
+  onBlur: () => null,
+  placeholder: '',
+  min: '0',
+  step: '0.01',
 };
 
 export default Input;
